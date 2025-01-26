@@ -1,5 +1,6 @@
 # Please note that this is not writen by a professional python developper and an english speaker
 # Hope it's not like acid in the eyes for professionnal developpers :)
+# Don't forget to change the dictionaries and the names of the files (or path) you'll use
 import re
 from pathlib import Path
 import json
@@ -422,6 +423,7 @@ def txt_to_json(path_poke, num_pokedex):
         json_data["forms"][0]["resources"]["backShiny"] = str(num_pokedex)
         json_data["forms"][0]["resources"]["cry"] = str(num_pokedex)
         json_data["forms"][0]["resources"]["character"] = str(num_pokedex)
+        #only works for 1 and 2 stages evolutions
         try:
             with open(path_poke.lower(), "r", encoding="utf-8") as bb:
                 baby_name = bb.read()
@@ -478,7 +480,7 @@ def separate_txt_file():
             print(f"Nom introuvable dans la section {i + 1}, section ignorée.")
 
 # The pokemon's name like seen in Essentials as Key and the pokedex number as value
-# This list has been made by ChatGPT, consider using it for 9gen pokemons
+# You can update this dict to correspond to the pokemons you want to import from essentials
 POKEDEX = {
     "POIPOLE": 803,
     "NAGANADEL": 804,
