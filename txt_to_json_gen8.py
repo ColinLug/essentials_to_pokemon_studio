@@ -582,13 +582,15 @@ POKEDEX = {
 
 def main():
     separate_txt_file()
-    for pok in POKEDEX:
-        rename_graphics(pok,"pokemon_essentials/Front","graphics/pokedex/pokefront")
-        rename_graphics(pok,"pokemon_essentials/Back","graphics/pokedex/pokeback")
-        rename_graphics(pok,"pokemon_essentials/Front shiny","graphics/pokedex/pokefrontshiny")
-        rename_graphics(pok,"pokemon_essentials/Back shiny","graphics/pokedex/pokebackshiny")
-        rename_graphics(pok,"pokemon_essentials/Icons","graphics/pokedex/pokeicon")
-        rename_graphics(pok,"pokemon_essentials/Cries","audio/se/cries", ".ogg")
+    
+    # Si vous devez renommez les ressources
+    # for pok in POKEDEX:
+    #     rename_graphics(pok,"pokemon_essentials/Front","graphics/pokedex/pokefront")
+    #     rename_graphics(pok,"pokemon_essentials/Back","graphics/pokedex/pokeback")
+    #     rename_graphics(pok,"pokemon_essentials/Front shiny","graphics/pokedex/pokefrontshiny")
+    #     rename_graphics(pok,"pokemon_essentials/Back shiny","graphics/pokedex/pokebackshiny")
+    #     rename_graphics(pok,"pokemon_essentials/Icons","graphics/pokedex/pokeicon")
+    #     rename_graphics(pok,"pokemon_essentials/Cries","audio/se/cries", ".ogg")
 
 if __name__ == "__main__":
     main()
