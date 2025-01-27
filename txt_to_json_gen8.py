@@ -54,7 +54,7 @@ def search_name_move(mov):
         mov (str): the move's name in Essentials
 
     Returns:
-        str: the move's name in PSDK
+        str: the move's name in Pokemon Studio
     """
     try:
         with open("moves.txt", 'r', encoding="utf-8") as mf:
@@ -81,7 +81,7 @@ def search_name_ability(ability):
         ability (str): the ability's name in Essentials
 
     Returns:
-        str: the ability's name in PSDK
+        str: the ability's name in Pokemon Studio
     """
     try:
         with open("abilities.txt", 'r', encoding="utf-8") as mf:
@@ -110,7 +110,7 @@ def search_name_obj(item):
         item (str): the item's name in Essentials
 
     Returns:
-        str: the item's name in PSDK
+        str: the item's name in Pokemon Studio
     """
     try:
         with open("items.txt", 'r', encoding="utf-8") as mf:
@@ -136,7 +136,7 @@ def clean_name(str_name):
         str_name (str): pokemon's name to clean
 
     Returns:
-        str: the pokemon's name clean (as in PSDK)
+        str: the pokemon's name clean (as in Pokemon Studio)
     """
     clean_str_name = str_name.replace(".","")
     clean_str_name = clean_str_name.replace(" ","_")
@@ -245,13 +245,13 @@ def txt_to_json(path_poke, num_pokedex):
                 json_data["forms"][0]["baseAts"] = int(stats[4])
                 json_data["forms"][0]["baseDfs"] = int(stats[5])
             
-            # add the pokemon's experience gain curv (see EXP_CORR for the bridge between Essentials and PSDK)
+            # add the pokemon's experience gain curv (see EXP_CORR for the bridge between Essentials and Pokemon Studio)
             exp_typ_match = re.search(r"GrowthRate = (\S*)", line)
             if exp_typ_match :
                 exp_typ = exp_typ_match.group(1).strip()
                 json_data["forms"][0]["experienceType"] = EXP_CORR[exp_typ]
             
-            # add the pokemon's gender ratio (see GENDER_CORR for the bridge between Essentials and PSDK)
+            # add the pokemon's gender ratio (see GENDER_CORR for the bridge between Essentials and Pokemon Studio)
             gender_ratio_match = re.search(r"GenderRatio = (\S*)", line)
             if gender_ratio_match :
                 gender_ratio = gender_ratio_match.group(1).strip()
@@ -262,7 +262,7 @@ def txt_to_json(path_poke, num_pokedex):
             if base_exp_match:
                 json_data["forms"][0]["baseExperience"] = int(base_exp_match.group(1).strip())
             
-            # add the pokemon's ev given (see EV_CORR for the bridge between Essentials and PSDK)
+            # add the pokemon's ev given (see EV_CORR for the bridge between Essentials and Pokemon Studio)
             base_ev_match = re.search(r"EVs = (\S*)", line)
             if base_ev_match:
                 EVs = base_ev_match.group(1).split(",")
